@@ -10,7 +10,7 @@ Step4: Add all these files to your project
 Step5: Add #include <json/json.h> to the main source code 
 Step6: Copy the files under "include" directory of "jsoncpp" and paste them in "include"diretory of the compiler which you are using  
 ```
-## Build
+## Build Instructions
 1. Open terminal and run following command which creates an object file(this needs to be done only once) :
 
 ````
@@ -33,6 +33,25 @@ eg; g++ -o executable M:\Documents\Large-scale-Processing-of-JSON-Objects\librar
 ./executable.exe`
 
 ````
+
+## Test Case outputs
+Small: 
+1: 49.2446
+2: 52.5
+3: 25, 34, 55, 65, 73, 111, 118, 132, 193, 261, 284, 309, 323, 334, 351, 425, 429, 433, 442, 447, 448, 463, 466, 506, 514, 564, 566, 568, 593, 604, 652, 669, 695, 736, 753, 755, 777, 806, 838, 842, 846, 864, 893, 935, 938, 968, 970,
+4: 0
+
+Medium:
+1: 
+2: 
+3:
+4: 
+
+Large:
+1: 
+2:
+3: 
+4: 
 
 ## Task 2
 ### 1. Performance enhancement techniques
