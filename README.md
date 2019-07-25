@@ -90,7 +90,9 @@ time taken by main function thread: 6190
 large:
 
 time taken to parse function: 0 (in clock ticks)
+
 time taken to read and write file : 65011
+
 time taken by main function thread: 65011
 
 
@@ -112,7 +114,8 @@ time taken by main function thread: 65011
 
 ### 2. Performance Bottlenecks
 1. I have followed the brute force approach so all of my functions take considerable amount of time 
-2. Without conversion in binary I was able to record folloeing timestamps:
+2. Without conversion in binary I was able to record following timestamps:
+
 small:
 
 time taken to parse function: 562 (in clock ticks)
