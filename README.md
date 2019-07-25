@@ -30,7 +30,7 @@ eg; g++ -o executable M:\Documents\Large-scale-Processing-of-JSON-Objects\librar
 2. The above command will create an executable file which can be now executed in following way:
 
 ````
-./executable.exe`
+./executable.exe
 
 ````
 
