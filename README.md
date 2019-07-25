@@ -8,7 +8,7 @@ Step2: Navigate to the cloned directory and run "python amalgamate.py" to create
 Step3: Three files will get created as a result of this json.h, jsoncpp.cpp, json-forward.h, under dist directory
 Step4: Add all these files to your project 
 Step5: Add #include <json/json.h> to the main source code 
-Step6: Copy the files under "include" directory of "jsoncpp" and paste them in "include"diretory of the compiler which you are using  
+Step6: Add path of "include" directory to "includepath" of the "c_cpp_properties.json"
 ```
 ## Build Instructions
 1. Open terminal and run following command which creates an object file(this needs to be done only once) :
@@ -67,9 +67,30 @@ Large:
 
 ## Task 2
 ### 1. Performance enhancement techniques
-1.Cashing
+Reading the files by converting them to binary.
+Following this approach I got significant time improvement:
+small:
 
-2.Conversion into bytes
+time taken to parse function: 1 (in clock ticks)
+time taken to read and write file : 64
+time taken by main function thread: 68
+
+
+medium:
+
+time taken to parse function: 0 (in clock ticks)
+time taken to read and write file : 6189
+time taken by main function thread: 6190
+
+large:
+
+time taken to parse function: 0 (in clock ticks)
+time taken to read and write file : 65011
+time taken by main function thread: 65011
+
+
+
+
 
 ## Task 3
 ### 1. Computer Configuration
@@ -85,7 +106,14 @@ Large:
 
 
 ### 2. Performance Bottlenecks
-1. Without using any performance enhancement techniques, medium.txt was not even processed.
+1. I have followed the brute force approach so all of my functions take considerable amount of time 
+2. Without conversion in binary I was able to record folloeing timestamps:
+small:
 
+time taken to parse function: 562 (in clock ticks)
+time taken to read and write file : 237
+time taken by main function thread: 807
+
+medium and large: was not able to record 
 
 
