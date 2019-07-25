@@ -12,3 +12,24 @@ Step6: Copy the files under "include" directory of "jsoncpp" and paste them in "
 ```
 ## Build
 Build the project using any c++ compiler or you can use Cmake
+
+## Task 2
+### 1. Performance enhancement techniques
+Cashing
+Conversion into bytes
+
+## Task 3
+### 1. Computer Configuration
+Number of CPU Cores:  4 Core(s), 8 Logical Processor(s)
+Type of Disk: SSD
+Operting System: Microsoft Windows 10 Home 
+Version:	10.0.17134 
+
+Installed Physical Memory (RAM)	8.00 GB
+Total Physical Memory	7.90 GB
+
+### 2. Performance Bottlenecks
+1. Without using any performance enhancement techniques, medium.txt was not even processed.
+
+
+
