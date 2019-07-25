@@ -11,70 +11,20 @@
 using namespace std;
 using namespace Json;
 
-
-using namespace std; 
-  
-class LRUCache { 
-    // store keys of cache 
-    list<int> dq; 
-  
-    // store references of key in cache 
-    unordered_map<int, list<int>::iterator> ma; 
-    int csize; // maximum capacity of cache 
-  
-public: 
-    LRUCache(int); 
-    void refer(int); 
-    void display(); 
-}; 
-  
-// Declare the size 
-LRUCache::LRUCache(int n) 
-{ 
-    csize = n; 
-} 
-  
-// Refers key x with in the LRU cache 
-void LRUCache::refer(int x) 
-{ 
-    // not present in cache 
-    if (ma.find(x) == ma.end()) { 
-        // cache is full 
-        if (dq.size() == csize) { 
-            // delete least recently used element 
-            int last = dq.back(); 
-  
-            // Pops the last elmeent 
-            dq.pop_back(); 
-  
-            // Erase the last 
-            ma.erase(last); 
-        } 
-    } 
-  
-    // present in cache 
-    else
-        dq.erase(ma[x]); 
-  
-    // update reference 
-    dq.push_front(x); 
-    ma[x] = dq.begin(); 
-} 
-  
-// Function to display contents of cache 
-void LRUCache::display() 
-{ 
-  
-    // Iterate in the deque and print 
-    // all the elements in it 
-    for (auto it = dq.begin(); it != dq.end(); 
-         it++) 
-        cout << (*it) << " "; 
-  
-    cout << endl; 
-}
+// To enable reading a stream as a binary file  
+struct Bin
+{
+    int value;
+    operator int() const { return value; }
+    friend istream& operator >> (istream& stream, Bin& data)
+    {
+        return stream.read(reinterpret_cast<char*>(&data.value),sizeof(int));
+    }
+};
 
 
+
+  
 void printValues(double avg, double maxOfMax, vector<int> idArry, vector<int> idList)
 {
     cout << "1: " << avg << "\n";
@@ -107,7 +57,6 @@ bool parseJson(const char *begin, const char *end)
     vector<double> componentVal;
     vector<double> componentMaxVal;
     vector<double> componentArray;
-    vector<int> maxList;
     double maxOfMax;
     Value maxcomp;
     vector<int> idArry;
@@ -146,18 +95,19 @@ bool parseJson(const char *begin, const char *end)
                 idArry.push_back((*itr)["id"].asInt());
             }
         }
-        printValues(avg, maxOfMax, idArry, maxList);
+        printValues(avg, maxOfMax, idArry, idList);
     }
 
     parseTime = clock() - parseTime;
 
-    cout <<"time to parse"<< parseTime << "\n";
+    cout <<"time taken to parse"<< parseTime << "\n";
     return parseSuccess;
 }
 
 int main()
 {
     clock_t time;
+    clock_t fileReadtime;
 
     time = clock();
     ifstream inputTextFile;
@@ -168,27 +118,32 @@ int main()
     StreamWriterBuilder streamBuilder;
     StreamWriter *josnWriter = streamBuilder.newStreamWriter();
 
+    
+
     string output;
     string textFile;
 
-    inputTextFile.open("M:\\Documents\\data\\medium.txt");
-    textFile.assign(istreambuf_iterator<char>(inputTextFile), istreambuf_iterator<char>());
+    fileReadtime = clock();
 
+    inputTextFile.open("M:\\Documents\\data\\small.txt", ios::binary);
+    textFile.assign(istream_iterator<char>(inputTextFile), istream_iterator<char>());
+    
     outputJsonFile.open("textfile.json");
     outputJsonFile << "[" << textFile << "]";
+    
     outputJsonFile.close();
     inputTextFile.close();
 
     inputTextFile.open("textfile.json");
-    textFile.assign(istreambuf_iterator<char>(inputTextFile), istreambuf_iterator<char>());
+    textFile.assign(istream_iterator<char>(inputTextFile), istream_iterator<char>());
 
-    //function to parse json 
-
+    fileReadtime = clock() - fileReadtime;
+    
     bool parseSuccess = parseJson(textFile.c_str(), textFile.size() + textFile.c_str());
 
     time = clock() -time;
 
-
+    cout << "time taken to read and write file :" << fileReadtime << "\n"; 
     cout << "time taken by main thread:" << time << "\n"; 
 
     return 0;
