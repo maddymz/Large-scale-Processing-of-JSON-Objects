@@ -21,10 +21,15 @@ Step6: Copy the files under "include" directory of "jsoncpp" and paste them in "
 ## Task 3
 ### 1. Computer Configuration
 1.Number of CPU Cores:  4 Core(s), 8 Logical Processor(s).
+
 2.Type of Disk: SSD.
+
 3.Operting System: Microsoft Windows 10 Home. 
+
 4.Version:	10.0.17134.
+
 5.Physical Memory (RAM)	8.00 GB.
+
 
 ### 2. Performance Bottlenecks
 1. Without using any performance enhancement techniques, medium.txt was not even processed.
