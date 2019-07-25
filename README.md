@@ -11,7 +11,28 @@ Step5: Add #include <json/json.h> to the main source code
 Step6: Copy the files under "include" directory of "jsoncpp" and paste them in "include"diretory of the compiler which you are using  
 ```
 ## Build
-1.Build the project using any c++ compiler or you can use Cmake
+1. Open terminal and run following command which creates an object file(this needs to be done only once) :
+
+````
+g++ -c  <file having main src code>
+
+eg; g++ -c parse.cpp
+
+````
+2. Now run the follwoing command to create executable file:
+
+````
+g++ -o <name for executable file> <path to object code> <file having main src code>
+
+eg; g++ -o executable M:\Documents\Large-scale-Processing-of-JSON-Objects\library\jsoncpp.o parse.cpp
+
+````
+2. The above command will create an executable file which can be now executed in following way:
+
+````
+./executable.exe`
+
+````
 
 ## Task 2
 ### 1. Performance enhancement techniques
